@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Random Encounters - Barovia</title>
+<link rel="stylesheet" href="../style.css">
 
+<style>
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f4f4f4;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background: #222;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Random Encounters</h1>
+    <p>Barovia - losowe wydarzenia</p>
+</header>
+
+<main>
+
+<!-- ================= DAYTIME ================= -->
+<section>
+    <h2>Daytime Encounters</h2>
+
+    <button onclick="rollDay()">🎲 Rzuć spotkanie dzienne</button>
+
+    <div id="dayResult" class="result"></div>
+
+    <table>
+        <tr><th>Wynik (2-20)</th><th>Spotkanie</th></tr>
+        <tr><td>2</td><td>3d6 Barovian Commoner</td></tr>
+        <tr><td>3</td><td>1d6 Barovian Scout</td></tr>
+        <tr><td>4</td><td>Hunting trap</td></tr>
+        <tr><td>5</td><td>Grave</td></tr>
+        <tr><td>6</td><td>False trail</td></tr>
+        <tr><td>7</td><td>1d4 + 1 Vistani bandits</td></tr>
+        <tr><td>8</td><td>Skeletal rider</td></tr>
+        <tr><td>9</td><td>Trinket</td></tr>
+        <tr><td>10</td><td>Hidden bundle</td></tr>
+        <tr><td>11</td><td>Swarm of ravens / wereraven</td></tr>
+        <tr><td>12</td><td>1d6 dire wolves</td></tr>
+        <tr><td>13</td><td>3d6 wolves</td></tr>
+        <tr><td>14</td><td>1d4 berserkers</td></tr>
+        <tr><td>15</td><td>Corpse</td></tr>
+        <tr><td>16</td><td>1d6 werewolves (human form)</td></tr>
+        <tr><td>17</td><td>Druid + twig blights</td></tr>
+        <tr><td>18</td><td>2d4 needle blights</td></tr>
+        <tr><td>19</td><td>1d6 scarecrows</td></tr>
+        <tr><td>20</td><td>1 revenant</td></tr>
+    </table>
+</section>
+
+<hr>
+
+<!-- ================= NIGHT ================= -->
+<section>
+    <h2>Nighttime Encounters</h2>
+
+    <button onclick="rollNight()">🌙 Rzuć spotkanie nocne</button>
+
+    <div id="nightResult" class="result"></div>
+
+    <table>
+        <tr><th>Wynik (2-20)</th><th>Spotkanie</th></tr>
+        <tr><td>2</td><td>Ghost</td></tr>
+        <tr><td>3</td><td>Hunting trap</td></tr>
+        <tr><td>4</td><td>Grave</td></tr>
+        <tr><td>5</td><td>Trinket</td></tr>
+        <tr><td>6</td><td>Corpse</td></tr>
+        <tr><td>7</td><td>Hidden bundle</td></tr>
+        <tr><td>8</td><td>Skeletal rider</td></tr>
+        <tr><td>9</td><td>Swarm of bats</td></tr>
+        <tr><td>10</td><td>1d6 dire wolves</td></tr>
+        <tr><td>11</td><td>3d6 wolves</td></tr>
+        <tr><td>12</td><td>1d4 berserkers</td></tr>
+        <tr><td>13</td><td>Druid + twig blights</td></tr>
+        <tr><td>14</td><td>2d4 needle blights</td></tr>
+        <tr><td>15</td><td>Werewolves (wolf form)</td></tr>
+        <tr><td>16</td><td>3d6 zombies</td></tr>
+        <tr><td>17</td><td>1d6 scarecrows</td></tr>
+        <tr><td>18</td><td>Strahd zombies</td></tr>
+        <tr><td>19</td><td>Will-o'-wisp</td></tr>
+        <tr><td>20</td><td>1 revenant</td></tr>
+    </table>
+</section>
+
+<br>
+<a href="../index.html">← Powrót</a>
+
+</main>
+
+<script>
+// true dice roll: d12 + d8 (Barovia table rule)
+function rollDie(sides) {
+    return Math.floor(Math.random() * sides) + 1;
+}
+
+// DAY
+function rollDay() {
+    const roll = rollDie(12) + rollDie(8);
+
+    const table = {
+        2: "3d6 Barovian Commoner",
+        3: "1d6 Barovian Scout",
+        4: "Hunting trap",
+        5: "Grave",
+        6: "False trail",
+        7: "1d4 + 1 Vistani bandits",
+        8: "Skeletal rider",
+        9: "Trinket",
+        10: "Hidden bundle",
+        11: "Swarm of ravens / wereraven",
+        12: "1d6 dire wolves",
+        13: "3d6 wolves",
+        14: "1d4 berserkers",
+        15: "Corpse",
+        16: "1d6 werewolves (human form)",
+        17: "Druid + twig blights",
+        18: "2d4 needle blights",
+        19: "1d6 scarecrows",
+        20: "1 revenant"
+    };
+
+    document.getElementById("dayResult").innerHTML =
+        "🎲 Wynik: <b>" + roll + "</b><br>👉 " + table[roll];
+}
+
+// NIGHT
+function rollNight() {
+    const roll = rollDie(12) + rollDie(8);
+
+    const table = {
+        2: "Ghost",
+        3: "Hunting trap",
+        4: "Grave",
+        5: "Trinket",
+        6: "Corpse",
+        7: "Hidden bundle",
+        8: "Skeletal rider",
+        9: "Swarm of bats",
+        10: "1d6 dire wolves",
+        11: "3d6 wolves",
+        12: "1d4 berserkers",
+        13: "Druid + twig blights",
+        14: "2d4 needle blights",
+        15: "Werewolves (wolf form)",
+        16: "3d6 zombies",
+        17: "1d6 scarecrows",
+        18: "Strahd zombies",
+        19: "Will-o'-wisp",
+        20: "1 revenant"
+    };
+
+    document.getElementById("nightResult").innerHTML =
+        "🌙 Wynik: <b>" + roll + "</b><br>👉 " + table[roll];
+}
+</script>
+
+</body>
+</html>
