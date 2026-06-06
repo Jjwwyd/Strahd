@@ -1,5 +1,5 @@
 /* =========================
-   OGÓLNY KLIMAT
+   RESET
 ========================= */
 
 *{
@@ -8,188 +8,214 @@
     box-sizing:border-box;
 }
 
+/* =========================
+   GŁÓWNE TŁO – PAPIER + CIEMNA MGŁA
+========================= */
+
 body{
     font-family: "Georgia", "Times New Roman", serif;
+
     background:
-        radial-gradient(circle at top, #1a0000 0%, #000000 60%),
-        #000000;
-    color:#e6e6e6;
-    line-height:1.6;
+        radial-gradient(circle at top, #2b2b2b 0%, #111 60%),
+        linear-gradient(180deg, #1a1a1a, #0d0d0d);
+
+    color:#eae6dd;
+    line-height:1.7;
 }
 
 /* =========================
-   HEADER – RAVENLOFT STYLE
+   HEADER – SUBTELNY GOTYK
 ========================= */
 
 header{
     text-align:center;
-    padding:50px 20px;
-    background: linear-gradient(180deg, #2a0000, #000000);
-    border-bottom: 2px solid #5a0000;
-    box-shadow: 0 0 30px rgba(255,0,0,0.15);
+    padding:45px 20px;
+
+    background:
+        linear-gradient(180deg, #2a1a1a, #141414);
+
+    border-bottom:1px solid #3a1f1f;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.6);
 }
 
 header h1{
     font-size:3rem;
     letter-spacing:2px;
-    color:#b30000;
-    text-shadow: 0 0 10px rgba(179,0,0,0.7);
+    color:#d9d2c3;
+    text-shadow:0 0 3px rgba(0,0,0,0.8);
 }
 
 header p{
-    color:#aaa;
-    margin-top:10px;
+    margin-top:8px;
+    color:#b9b2a6;
     font-style:italic;
 }
 
 /* =========================
-   TEKST I SEKCJE
+   UKŁAD STRONY
 ========================= */
 
 main{
-    max-width:1200px;
+    max-width:1100px;
     margin:auto;
     padding:40px;
 }
 
-section{
-    margin-bottom:30px;
-}
+/* =========================
+   TEKST
+========================= */
 
 h2{
-    color:#ff1a1a;
+    color:#c14444; /* krew Strahda */
     margin-bottom:10px;
-    border-left:4px solid #800000;
+    border-left:4px solid #7a2a2a;
     padding-left:10px;
 }
 
 p{
     margin-bottom:10px;
+    color:#e6e1d6;
 }
 
 /* =========================
-   LINKI OGÓLNE
+   LINKI
 ========================= */
 
 a{
-    color:#ff4d4d;
+    color:#c14444;
     text-decoration:none;
+    transition:0.2s;
 }
 
 a:hover{
-    color:#ff0000;
-    text-shadow:0 0 8px rgba(255,0,0,0.6);
+    color:#e85a5a;
+    text-shadow:0 0 6px rgba(193,68,68,0.4);
 }
 
 /* =========================
-   NAWIGACJA – NAJWAŻNIEJSZE
+   NAWIGACJA (NAJWAŻNIEJSZA ZMIANA)
 ========================= */
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
+    gap:18px;
     margin-top:20px;
 }
 
-/* główne karty nawigacyjne */
+/* Karty – bardziej „papierowe” niż neonowe */
 .card{
     display:block;
-    padding:25px;
+    padding:22px;
+
     background:
-        linear-gradient(145deg, #1a1a1a, #0a0a0a);
-    color:#e6e6e6;
-    border:1px solid #330000;
-    border-radius:12px;
-    text-align:center;
+        linear-gradient(180deg, #2a2622, #1b1815);
+
+    border:1px solid #3b2a2a;
+    border-radius:10px;
+
+    color:#e8e2d6;
     font-weight:bold;
-    letter-spacing:1px;
-    transition:0.25s ease;
-    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    text-align:center;
+
+    transition:0.2s ease;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.4);
 }
 
-/* hover – efekt „żyjącego zamku” */
+/* hover – „krwawy ślad”, ale delikatny */
 .card:hover{
-    transform:translateY(-6px) scale(1.02);
-    border-color:#ff0000;
+    transform:translateY(-4px);
+
+    border-color:#c14444;
+
     box-shadow:
-        0 0 15px rgba(255,0,0,0.4),
-        0 0 30px rgba(255,0,0,0.2);
+        0 0 10px rgba(193,68,68,0.25),
+        0 5px 15px rgba(0,0,0,0.5);
 }
 
 /* =========================
-   PRZYCISKI (np. losowania)
+   PRZYCISKI
 ========================= */
 
 button{
-    padding:12px 18px;
-    background:#1a0000;
-    color:#fff;
-    border:1px solid #660000;
+    padding:11px 16px;
+
+    background:#2a1f1f;
+    color:#f2e9e4;
+
+    border:1px solid #5a2a2a;
     border-radius:8px;
+
     cursor:pointer;
+
     transition:0.2s;
     font-weight:bold;
 }
 
 button:hover{
-    background:#330000;
-    border-color:#ff0000;
-    box-shadow:0 0 10px rgba(255,0,0,0.4);
+    background:#3a2525;
+    border-color:#c14444;
 }
 
 /* =========================
-   WYNIKI / BOXY MG
+   WYNIKI MG
 ========================= */
 
 .result{
     margin-top:15px;
-    padding:15px;
-    background:#0d0d0d;
-    border-left:4px solid #ff0000;
+    padding:14px;
+
+    background:#1a1715;
+
+    border-left:4px solid #c14444;
     border-radius:8px;
+
+    color:#eee;
 }
 
 /* =========================
-   TABELKI (RAVENLOFT STYLE)
+   TABELKI
 ========================= */
 
 table{
     width:100%;
     border-collapse:collapse;
     margin-top:15px;
-    margin-bottom:30px;
-    background:#0a0a0a;
+    margin-bottom:25px;
+
+    background:#1a1715;
 }
 
 th, td{
-    border:1px solid #330000;
+    border:1px solid #3b2a2a;
     padding:10px;
 }
 
 th{
-    background:#1a0000;
-    color:#ff4d4d;
+    background:#2a1f1f;
+    color:#e0b4b4;
 }
 
 /* =========================
-   OSTRZEŻENIA / DANGER BOX
+   OSTRZEŻENIA
 ========================= */
 
 .warning{
-    margin-top:30px;
-    padding:15px;
-    background:#0a0000;
-    border-left:5px solid #ff0000;
+    margin-top:25px;
+    padding:14px;
+
+    background:#1a1414;
+    border-left:4px solid #c14444;
+
     border-radius:8px;
-    box-shadow:0 0 15px rgba(255,0,0,0.2);
 }
 
 /* =========================
-   MAŁE EFEKTY ATMOSFERY
+   SELEKCJA TEKSTU (KRWAWY AKCENT)
 ========================= */
 
 ::selection{
-    background:#ff0000;
-    color:#000;
+    background:#c14444;
+    color:#111;
 }
